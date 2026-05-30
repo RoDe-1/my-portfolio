@@ -7,7 +7,7 @@ import Card4 from "./assets/Card4.png";
 import Card5 from "./assets/Card5.png";
 import Card6 from "./assets/Card6.png";
 import main_cover from "./assets/Main_Cover3.png";
-import profileImage from "./assets/profile.jpg";
+import profileImage from "./assets/Myself.png";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
