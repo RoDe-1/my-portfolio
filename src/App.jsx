@@ -1432,6 +1432,9 @@ export default function App() {
           </div>
         </section>
       </main>
+      <footer className="footer">
+        <p>© 2026 RoDe Portfolio. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

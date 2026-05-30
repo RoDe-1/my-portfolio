@@ -55,6 +55,19 @@
       scale(0.8);
   }
 }
+.footer {
+  width: 100%;
+  padding: 20px;
+  margin-top: 60px;
+  text-align: center;
+  background-color: #111827;
+}
+
+.footer p {
+  margin: 0;
+  color: #d1d5db;
+  font-size: 14px;
+}
 
 #center {
   display: flex;
