@@ -396,6 +396,7 @@ function ProjectModal({ project, onClose }) {
           }}
         >
           <motion.div
+            className="project-model-scroll"
             initial={{ opacity: 0, scale: 0.96, y: 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 12 }}
@@ -407,7 +408,9 @@ function ProjectModal({ project, onClose }) {
               overflowY: "auto",
               background: "#ffffff",
               borderRadius: "28px",
-              boxShadow: "0 30px 80px rgba(0,0,0,0.25)",
+              boxShadow: "none",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
             }}
           >
             <div style={{ position: "relative" }}>
@@ -461,7 +464,7 @@ function ProjectModal({ project, onClose }) {
               <h3
                 className="project-modal-title"
                 style={{
-                  fontSize: "clamp(32px, 7vw, 58px)",
+                  fontSize: "clamp(30px, 7vw, 45px)",
                   lineHeight: 1,
                   color: "#0f172a",
                   fontWeight: 900,
