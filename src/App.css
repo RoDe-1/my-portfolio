@@ -328,6 +328,6 @@ body {
     max-width: 100% !important;
   }
   .project-modal-image {
-    height: clamp(280px, 65vw, 580px) !important;
+    height: clamp(200px, 50vw, 480px) !important;
   }
 }
