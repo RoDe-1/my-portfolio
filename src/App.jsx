@@ -967,18 +967,27 @@ export default function App() {
                               "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease",
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.transform =
-                              "translateY(-3px)";
-                            e.currentTarget.style.boxShadow =
-                              "0 10px 22px rgba(15, 23, 42, 0.12)";
-                            e.currentTarget.style.background =
-                              "rgba(255, 255, 255, 0.95)";
+                            if (window.matchMedia("(hover: hover)").matches) {
+                              e.currentTarget.style.transform =
+                                "translateY(-3px)";
+                              e.currentTarget.style.boxShadow =
+                                "0 10px 22px rgba(15, 23, 42, 0.12)";
+                              e.currentTarget.style.background =
+                                "rgba(255, 255, 255, 0.95)";
+                            }
                           }}
                           onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "#fff";
+                            e.currentTarget.style.color = "#334155";
                             e.currentTarget.style.transform = "translateY(0)";
                             e.currentTarget.style.boxShadow = "none";
-                            e.currentTarget.style.background =
-                              "rgba(255, 255, 255, 0.65)";
+                          }}
+                          onTouchEnd={(e) => {
+                            e.currentTarget.style.background = "#fff";
+                            e.currentTarget.style.color = "#334155";
+                            e.currentTarget.style.transform = "translateY(0)";
+                            e.currentTarget.style.boxShadow = "none";
+                            e.currentTarget.blur();
                           }}
                         >
                           <Icon size={17} />
