@@ -434,7 +434,7 @@ function ProjectModal({ project, onClose }) {
                 alt={project.title}
                 style={{
                   width: "100%",
-                  height: "clamp(180px, 42vw, 360px)",
+                  height: "clamp(360px, 58vw, 650px)",
                   objectFit: "cover",
                   objectPosition: "center",
                   display: "block",
