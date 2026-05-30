@@ -430,6 +430,7 @@ function ProjectModal({ project, onClose }) {
                 <X size={20} />
               </button>
               <img
+                className="project-modal-image"
                 src={project.image}
                 alt={project.title}
                 style={{
