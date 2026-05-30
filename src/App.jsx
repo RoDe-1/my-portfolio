@@ -24,6 +24,7 @@ import {
   MapPin,
   Camera,
   Send,
+  Phone,
   Sparkles,
   User,
   Wrench,
@@ -37,6 +38,7 @@ const profile = {
     "Driven by curiosity, learning, and building practical ideas that connect science, technology, and real-world impact.",
   location: "Basra, Iraq",
   email: "mortadamohammedcoe@gmail.com",
+  phone: "+9647718868780",
   FolderGit2: "https://github.com/RoDe-1",
   summary:
     "I build practical systems at the intersection of embedded software, IoT, and user-facing interfaces. My work focuses on turning technical concepts into clear, reliable, and polished products.",
@@ -915,6 +917,16 @@ export default function App() {
                   >
                     <Mail size={16} color="#94a3b8" />
                     {profile.email}
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <Phone size={16} color="#94a3b8" />
+                    {profile.phone}
                   </div>
                   <div
                     style={{
