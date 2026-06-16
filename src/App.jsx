@@ -655,6 +655,107 @@ function ProjectModal({ project, onClose }) {
     </AnimatePresence>
   );
 }
+function Navbar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navItems = [
+    { label: "Projects", href: "#projects" },
+    { label: "Certifications", href: "#certifications" },
+    { label: "Focus Areas", href: "#focus" },
+    { label: "Vision", href: "#vision" },
+  ];
+  return (
+    <>
+      <header className="navbar">
+        <div className="navbar-brand">
+          <div>
+            <div className="logo-label">PORTFOLIO</div>
+            <div className="logo-name">Mortada Mohammed</div>
+          </div>
+        </div>
+
+        <nav className="nav-links">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              style={{
+                color: "#334155",
+                textDecoration: "none",
+                padding: "10px 16px",
+                borderRadius: "999px",
+                fontSize: "15px",
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#dbeafe";
+                e.currentTarget.style.color = "#0f172a";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 18px rgba(59, 130, 246, 0.12)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "#334155";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <button className="menu-button" onClick={() => setIsSidebarOpen(true)}>
+          ☰
+        </button>
+      </header>
+
+      {isSidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setIsSidebarOpen(false)}
+        >
+          <aside
+            className="mobile-sidebar"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-button"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              ×
+            </button>
+
+            <div className="sidebar-brand">
+              <img
+                className="sidebar-avatar"
+                src={profileImage}
+                alt="Mortada Mohammed"
+              />
+              <div>
+                <div className="logo-label logo-labels">PORTFOLIO</div>
+                <div className="logo-name logo-names">Mortada Mohammed</div>
+              </div>
+            </div>
+            <nav className="sidebar-links">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  onClick={() => setIsSidebarOpen(false)}
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </aside>
+        </div>
+      )}
+    </>
+  );
+}
 export default function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const projectCountLabel = useMemo(
@@ -673,99 +774,11 @@ export default function App() {
           "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
       }}
     >
+      <Navbar />
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
-
-      <header
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 20,
-          background: "rgba(255,255,255,0.82)",
-          backdropFilter: "blur(10px)",
-          borderBottom: "1px solid rgba(226,232,240,0.8)",
-        }}
-      >
-        <div
-          className="nav-container"
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "18px 24px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "20px",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                fontSize: "12px",
-                color: "#64748b",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                fontWeight: 700,
-              }}
-            >
-              PORTFOLIO
-            </div>
-            <div style={{ fontSize: "14px", color: "#334155" }}>
-              {profile.name}
-            </div>
-          </div>
-
-          <nav
-            className="nav-links"
-            style={{
-              display: "flex",
-              gap: "10px",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {[
-              { label: "Projects", href: "#projects" },
-              { label: "Certifications", href: "#certifications" },
-              { label: "Focus Areas", href: "#Focus_Areas" },
-              { label: "Vision", href: "#vision" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                style={{
-                  color: "#334155",
-                  textDecoration: "none",
-                  padding: "10px 16px",
-                  borderRadius: "999px",
-                  fontSize: "15px",
-                  fontWeight: 600,
-                  letterSpacing: "-0.01em",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#dbeafe";
-                  e.currentTarget.style.color = "#0f172a";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 18px rgba(59, 130, 246, 0.12)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#334155";
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "none";
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
 
       <main>
         <section
